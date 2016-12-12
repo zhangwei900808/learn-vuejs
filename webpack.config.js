@@ -25,6 +25,11 @@ module.exports = {
         query:{
           compact:true
         }
+      },
+      {
+        test:/\.vue$/,
+        loader:'babel!vue',
+        exclude:"/node_modules/"
       }
     ]
   },
