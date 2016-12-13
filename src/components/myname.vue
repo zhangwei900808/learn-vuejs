@@ -1,10 +1,10 @@
 <style>
-  #myage{
-  color:red;
+  #myname{
+  color:green;
   }
 </style>
 <template>
-  <div id="myage">
+  <div id="myname">
     我的年龄：{{value}}
   </div>
 </template>

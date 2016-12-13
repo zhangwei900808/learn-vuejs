@@ -1,10 +1,10 @@
 import Vue from "vue";
 
-import my_age from "../components/myage.vue";
+import me from "../components/me.vue";
 
 let zw = new Vue({
   el:"#root",
-  components:{'myage':my_age}
+  components:{'me':me}
 })
 
 new Vue(zw);
