@@ -3,9 +3,11 @@ var webpack = require('webpack');
 
 module.exports = {
   entry:{
-    "index":__dirname + "/src/js/index.js"
+    "index":[__dirname + "/src/js/index.js",
+    'webpack-dev-server/client?http://127.0.0.1:8080']
   },
   output:{
+    publicPath:"http://127.0.0.1:8080/",
     path:__dirname+"/src/webapp/js",
     filename:'[name].js'
   },
@@ -35,7 +37,8 @@ module.exports = {
   },
   plugins:[
     new htmlWebpackPlugin({
-      filename:__dirname+'/src/webapp/index.html',
+      //filename:__dirname+'/src/webapp/index.html',
+      finename:"index.html",
       template:__dirname+'/src/html/index.html',
       inject:'body',
       hash:true,
