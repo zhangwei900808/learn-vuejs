@@ -1,6 +1,8 @@
 <template>
   <div id="row">
     <form class="form-horizontal" role="form">
+      <h2 v-if="isadmin">管理员登录</h2>
+      <h2 v-else>用户登录</h2>
       <user-name ref="uname"
         v-on:updateUsername="setUsername" placeholder="请输入用户名"></user-name>
       <user-submit></user-submit>
@@ -17,7 +19,8 @@ import usersubmit from "./user/user-submit.vue";
 export default{
   data(){
     return {
-      username:""
+      username:"",
+      isadmin:false
     }
   },
   methods:{

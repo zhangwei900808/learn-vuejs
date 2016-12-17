@@ -16,4 +16,10 @@ let zw = {
   }
 }
 
-new Vue(zw);
+let vuee = new Vue(zw);
+window.onhashchange = function(){
+  if(location.hash=="#admin")
+    vuee.$children[0].$data.isadmin=true;
+  else
+    vuee.$children[0].$data.isadmin=false;
+}
