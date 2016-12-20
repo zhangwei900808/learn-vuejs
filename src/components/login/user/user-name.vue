@@ -10,7 +10,7 @@
     props:["placeholder"],
     methods:{
       userNameChange(){
-        this.$emit("updateUsername",this.username)
+        this.$emit("childChange",'username',this.username)
       }
     },
     data:function(){
