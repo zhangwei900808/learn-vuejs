@@ -4,8 +4,10 @@ import userlogin from "../components/login/user-login.vue";
 import usernews from "../components/login/user-news.vue";
 import usernav from "../components/login/user-nav.vue";
 import VueRouter from "vue-router";
+import VueResource from "vue-resource";
 
 Vue.use(VueRouter);
+Vue.use(VueResource);
 
 const router =new VueRouter({
   routes:[
@@ -22,7 +24,15 @@ Vue.component('user-nav',usernav);
 
 let myvue = new Vue({
   el:'#root',
-  router:router
+  router:router,
+  mounted(){
+    //vue ajax
+    this.$http.get('http://www.awbeci.app/vue').then(function(res){
+      alert(res.body.test1)
+    },function(res){
+
+    })
+  }
 })
 
 // import me from "../components/me.vue";
