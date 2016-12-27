@@ -1,7 +1,7 @@
 import Vue from "vue";
 
-import userlogin from "../components/login/user-login.vue";
-import usernews from "../components/login/user-news.vue";
+//import userlogin from "../components/login/user-login.vue";
+//import usernews from "../components/login/user-news.vue";
 import usernav from "../components/login/user-nav.vue";
 import newsdetail from "../components/login/user-news-detail.vue";
 import VueRouter from "vue-router";
@@ -10,6 +10,19 @@ import VueResource from "vue-resource";
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+
+//异步加载组件
+const userlogin = r=>{
+  require.ensure([],()=>{
+    r(require("../components/login/user-login.vue"));
+  },'vuecs')//vuecs是组件别名
+}
+
+const usernews = n=>{
+  require.ensure([],()=>{
+    n(require("../components/login/user-news.vue"));
+  },'vuecs')
+}
 
 const router =new VueRouter({
   routes:[
