@@ -6,10 +6,13 @@ import usernav from "../components/login/user-nav.vue";
 import newsdetail from "../components/login/user-news-detail.vue";
 import VueRouter from "vue-router";
 import VueResource from "vue-resource";
+import zhangwei from "../components/login/zhangwei";
 
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+
+Vue.use(zhangwei);
 
 //异步加载组件
 const userlogin = r=>{

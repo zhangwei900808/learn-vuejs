@@ -1,21 +1,33 @@
 <template>
   <div class="form-group">
     <label>用户名</label>
-    <input v-on:change="userNameChange" type="text" v-model="username" class="form-control" :placeholder="placeholder">
+    <input v-uname="showErrorLabel" v-on:change="userNameChange" type="text" v-model="username" class="form-control" :placeholder="placeholder">
+    <label v-if="showErrorLabel" class="label label-danger">用戶名不合法</label>
   </div>
 </template>
 
 <script>
   export default {
+    mounted(){
+      console.log('label='+this.showErrorLabel)
+    },
     props:["placeholder"],
     methods:{
       userNameChange(){
+        /*console.log('had changed')
+        if(this.checkUserName(this.username)){
+          this.showErrorLabel = false;
+        }
+        else{
+          this.showErrorLabel = true;
+        }*/
         this.$emit("childChange",'username',this.username)
       }
     },
     data:function(){
       return {
-        username:""
+        username:"",
+        showErrorLabel:true
       }
     }
   }
