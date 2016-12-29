@@ -2,7 +2,6 @@
   <div class="form-group">
     <label>用户名</label>
     <input v-uname="showErrorLabel" v-on:change="userNameChange" type="text" v-model="username" class="form-control" :placeholder="placeholder">
-    <label v-if="showErrorLabel" class="label label-danger">用戶名不合法</label>
   </div>
 </template>
 
