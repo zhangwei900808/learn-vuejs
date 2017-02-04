@@ -1,5 +1,22 @@
 export default{
   install(Vue){
+    Vue.component('zhangwei-input',{
+      template:`<div><input type="text" v-model="textValue" class="form-control" placeholder="请输入用户名">
+                <label v-if="showErrorLabel" class="label label-danger">用戶名不合法</label></div>`,
+      data(){
+        return {
+          textValue:''
+        }
+      },
+      computed:{
+        showErrorLabel(){
+          if(/\w{6,20}/.test(this.textValue) || this.textValue==""){
+            return false;
+          }
+          return true;
+        }
+      }
+    })
     Vue.prototype.checkUserName=(value)=>{
       console.log('value='+value)
       if(value==""){

@@ -11,7 +11,8 @@ webpackJsonp([1],[
 /* 9 */,
 /* 10 */,
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22,10 +23,10 @@ webpackJsonp([1],[
 	var __vue_styles__ = {};
 
 	/* script */
-	__vue_exports__ = __webpack_require__(13);
+	__vue_exports__ = __webpack_require__(14);
 
 	/* template */
-	var __vue_template__ = __webpack_require__(26);
+	var __vue_template__ = __webpack_require__(27);
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {};
 	if (_typeof(__vue_exports__.default) === "object" || typeof __vue_exports__.default === "function") {
 	  if (Object.keys(__vue_exports__).some(function (key) {
@@ -63,7 +64,7 @@ webpackJsonp([1],[
 	module.exports = __vue_exports__;
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72,19 +73,19 @@ webpackJsonp([1],[
 	  value: true
 	});
 
-	var _userName = __webpack_require__(14);
+	var _userName = __webpack_require__(15);
 
 	var _userName2 = _interopRequireDefault(_userName);
 
-	var _userSubmit = __webpack_require__(17);
+	var _userSubmit = __webpack_require__(18);
 
 	var _userSubmit2 = _interopRequireDefault(_userSubmit);
 
-	var _userArea = __webpack_require__(20);
+	var _userArea = __webpack_require__(21);
 
 	var _userArea2 = _interopRequireDefault(_userArea);
 
-	var _userFavs = __webpack_require__(23);
+	var _userFavs = __webpack_require__(24);
 
 	var _userFavs2 = _interopRequireDefault(_userFavs);
 
@@ -137,7 +138,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -148,10 +149,10 @@ webpackJsonp([1],[
 	var __vue_styles__ = {};
 
 	/* script */
-	__vue_exports__ = __webpack_require__(15);
+	__vue_exports__ = __webpack_require__(16);
 
 	/* template */
-	var __vue_template__ = __webpack_require__(16);
+	var __vue_template__ = __webpack_require__(17);
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {};
 	if (_typeof(__vue_exports__.default) === "object" || typeof __vue_exports__.default === "function") {
 	  if (Object.keys(__vue_exports__).some(function (key) {
@@ -189,7 +190,7 @@ webpackJsonp([1],[
 	module.exports = __vue_exports__;
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -206,21 +207,33 @@ webpackJsonp([1],[
 	//
 
 	exports.default = {
+	  mounted: function mounted() {
+	    console.log('label=' + this.showErrorLabel);
+	  },
+
 	  props: ["placeholder"],
 	  methods: {
 	    userNameChange: function userNameChange() {
+	      /*console.log('had changed')
+	      if(this.checkUserName(this.username)){
+	        this.showErrorLabel = false;
+	      }
+	      else{
+	        this.showErrorLabel = true;
+	      }*/
 	      this.$emit("childChange", 'username', this.username);
 	    }
 	  },
 	  data: function data() {
 	    return {
-	      username: ""
+	      username: "",
+	      showErrorLabel: true
 	    };
 	  }
 	};
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
@@ -228,6 +241,11 @@ webpackJsonp([1],[
 	    staticClass: "form-group"
 	  }, [_h('label', ["用户名"]), " ", _h('input', {
 	    directives: [{
+	      name: "uname",
+	      rawName: "v-uname",
+	      value: (_vm.showErrorLabel),
+	      expression: "showErrorLabel"
+	    }, {
 	      name: "model",
 	      rawName: "v-model",
 	      value: (_vm.username),
@@ -259,7 +277,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -270,10 +288,10 @@ webpackJsonp([1],[
 	var __vue_styles__ = {};
 
 	/* script */
-	__vue_exports__ = __webpack_require__(18);
+	__vue_exports__ = __webpack_require__(19);
 
 	/* template */
-	var __vue_template__ = __webpack_require__(19);
+	var __vue_template__ = __webpack_require__(20);
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {};
 	if (_typeof(__vue_exports__.default) === "object" || typeof __vue_exports__.default === "function") {
 	  if (Object.keys(__vue_exports__).some(function (key) {
@@ -311,7 +329,7 @@ webpackJsonp([1],[
 	module.exports = __vue_exports__;
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -335,7 +353,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
@@ -360,7 +378,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -371,10 +389,10 @@ webpackJsonp([1],[
 	var __vue_styles__ = {};
 
 	/* script */
-	__vue_exports__ = __webpack_require__(21);
+	__vue_exports__ = __webpack_require__(22);
 
 	/* template */
-	var __vue_template__ = __webpack_require__(22);
+	var __vue_template__ = __webpack_require__(23);
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {};
 	if (_typeof(__vue_exports__.default) === "object" || typeof __vue_exports__.default === "function") {
 	  if (Object.keys(__vue_exports__).some(function (key) {
@@ -412,7 +430,7 @@ webpackJsonp([1],[
 	module.exports = __vue_exports__;
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -458,7 +476,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
@@ -499,7 +517,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -510,10 +528,10 @@ webpackJsonp([1],[
 	var __vue_styles__ = {};
 
 	/* script */
-	__vue_exports__ = __webpack_require__(24);
+	__vue_exports__ = __webpack_require__(25);
 
 	/* template */
-	var __vue_template__ = __webpack_require__(25);
+	var __vue_template__ = __webpack_require__(26);
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {};
 	if (_typeof(__vue_exports__.default) === "object" || typeof __vue_exports__.default === "function") {
 	  if (Object.keys(__vue_exports__).some(function (key) {
@@ -551,7 +569,7 @@ webpackJsonp([1],[
 	module.exports = __vue_exports__;
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -622,7 +640,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
@@ -669,7 +687,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
@@ -706,7 +724,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -717,10 +735,10 @@ webpackJsonp([1],[
 	var __vue_styles__ = {};
 
 	/* script */
-	__vue_exports__ = __webpack_require__(28);
+	__vue_exports__ = __webpack_require__(29);
 
 	/* template */
-	var __vue_template__ = __webpack_require__(29);
+	var __vue_template__ = __webpack_require__(30);
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {};
 	if (_typeof(__vue_exports__.default) === "object" || typeof __vue_exports__.default === "function") {
 	  if (Object.keys(__vue_exports__).some(function (key) {
@@ -758,7 +776,7 @@ webpackJsonp([1],[
 	module.exports = __vue_exports__;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -814,7 +832,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;

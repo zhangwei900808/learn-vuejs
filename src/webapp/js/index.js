@@ -102,10 +102,11 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var _vue=__webpack_require__(2);var _vue2=_interopRequireDefault(_vue);var _userNav=__webpack_require__(3);var _userNav2=_interopRequireDefault(_userNav);var _userNewsDetail=__webpack_require__(6);var _userNewsDetail2=_interopRequireDefault(_userNewsDetail);var _vueRouter=__webpack_require__(9);var _vueRouter2=_interopRequireDefault(_vueRouter);var _vueResource=__webpack_require__(11);var _vueResource2=_interopRequireDefault(_vueResource);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}//import userlogin from "../components/login/user-login.vue";
+	"use strict";var _vue=__webpack_require__(2);var _vue2=_interopRequireDefault(_vue);var _userNav=__webpack_require__(3);var _userNav2=_interopRequireDefault(_userNav);var _userNewsDetail=__webpack_require__(6);var _userNewsDetail2=_interopRequireDefault(_userNewsDetail);var _vueRouter=__webpack_require__(9);var _vueRouter2=_interopRequireDefault(_vueRouter);var _vueResource=__webpack_require__(11);var _vueResource2=_interopRequireDefault(_vueResource);var _zhangwei=__webpack_require__(12);var _zhangwei2=_interopRequireDefault(_zhangwei);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}_vue2.default.use(_vueRouter2.default);//import userlogin from "../components/login/user-login.vue";
 	//import usernews from "../components/login/user-news.vue";
-	_vue2.default.use(_vueRouter2.default);_vue2.default.use(_vueResource2.default);//异步加载组件
-	var userlogin=function userlogin(r){__webpack_require__.e/* nsure */(1, function(){r(__webpack_require__(12));});};var usernews=function usernews(n){__webpack_require__.e/* nsure */(1, function(){n(__webpack_require__(27));});};var router=new _vueRouter2.default({routes:[{path:'/',component:usernews,name:''},{path:'/news',component:usernews,name:'newlist'},{path:'/news/:newsid',component:_userNewsDetail2.default,name:'newsdetail'},{path:'/login',component:userlogin,name:'userlogin'}]});_vue2.default.component('user-nav',_userNav2.default);var myvue=new _vue2.default({el:'#root',router:router});// import me from "../components/me.vue";
+	_vue2.default.use(_vueResource2.default);_vue2.default.use(_zhangwei2.default);//异步加载组件
+	var userlogin=function userlogin(r){__webpack_require__.e/* nsure */(1, function(){r(__webpack_require__(13));});//vuecs是组件别名
+	};var usernews=function usernews(n){__webpack_require__.e/* nsure */(1, function(){n(__webpack_require__(28));});};var router=new _vueRouter2.default({routes:[{path:'/',component:usernews,name:''},{path:'/news',component:usernews,name:'newlist'},{path:'/news/:newsid',component:_userNewsDetail2.default,name:'newsdetail'},{path:'/login',component:userlogin,name:'userlogin'}]});_vue2.default.component('user-nav',_userNav2.default);var myvue=new _vue2.default({el:'#root',router:router});// import me from "../components/me.vue";
 	//
 	// let zw = new Vue({
 	//   el:"#root",
@@ -1417,6 +1418,15 @@
 	 */function Resource(url,params,actions,options){var self=this||{},resource={};actions=assign({},Resource.actions,actions);each(actions,function(action,name){action=merge({url:url,params:assign({},params)},options,action);resource[name]=function(){return(self.$http||Http)(opts(action,arguments));};});return resource;}function opts(action,args){var options=assign({},action),params={},body;switch(args.length){case 2:params=args[0];body=args[1];break;case 1:if(/^(POST|PUT|PATCH)$/i.test(options.method)){body=args[0];}else{params=args[0];}break;case 0:break;default:throw'Expected up to 4 arguments [params, body], got '+args.length+' arguments';}options.body=body;options.params=assign({},options.params,params);return options;}Resource.actions={get:{method:'GET'},save:{method:'POST'},query:{method:'GET'},update:{method:'PUT'},remove:{method:'DELETE'},delete:{method:'DELETE'}};/**
 	 * Install plugin.
 	 */function plugin(Vue){if(plugin.installed){return;}Util(Vue);Vue.url=Url;Vue.http=Http;Vue.resource=Resource;Vue.Promise=PromiseObj;Object.defineProperties(Vue.prototype,{$url:{get:function get(){return options(Vue.url,this,this.$options.url);}},$http:{get:function get(){return options(Vue.http,this,this.$options.http);}},$resource:{get:function get(){return Vue.resource.bind(this);}},$promise:{get:function get(){var _this=this;return function(executor){return new Vue.Promise(executor,_this);};}}});}if(typeof window!=='undefined'&&window.Vue){window.Vue.use(plugin);}module.exports=plugin;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	'use strict';Object.defineProperty(exports,"__esModule",{value:true});exports.default={install:function install(Vue){Vue.prototype.checkUserName=function(value){console.log('value='+value);if(value==""){return true;}return /\w{6,20}/.test(value);};Vue.prototype.errorLabel=null;Vue.prototype.hasError=false;Vue.directive('uname',{bind:function bind(){//console.log("begin");
+	var error=Vue.extend({template:'<label class="label label-danger">\u7528\u6236\u540D\u4E0D\u5408\u6CD5</label>'});Vue.errorLabel=new error().$mount().$el;},update:function update(el,binding,vnode){console.log('update');if(/\w{6,20}/.test(el.value)){//vnode.context[binding.expression]=false;
+	if(Vue.hasError){el.parentNode.removeChild(Vue.errorLabel);Vue.hasError=!Vue.hasError;}}else{//vnode.context[binding.expression]=true;
+	if(!Vue.hasError){el.parentNode.appendChild(Vue.errorLabel);Vue.hasError=!Vue.hasError;}}}});}};
 
 /***/ }
 /******/ ]);

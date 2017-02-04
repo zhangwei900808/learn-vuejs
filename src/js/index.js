@@ -6,12 +6,27 @@ import usernav from "../components/login/user-nav.vue";
 import newsdetail from "../components/login/user-news-detail.vue";
 import VueRouter from "vue-router";
 import VueResource from "vue-resource";
+import Vuex from "vuex";
 import zhangwei from "../components/login/zhangwei";
 
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(Vuex);
 
+const vuex_store = new Vuex.Store({
+  state:{
+    user_name:''
+  },
+  mutations:{
+    //注意：只有执行this.$store.commit("showUserName");才会执行showUserName方法
+    showUserName(state){
+      alert(state.user_name);
+    }
+  }
+})
+
+//自定义组件
 Vue.use(zhangwei);
 
 //异步加载组件
@@ -48,6 +63,7 @@ Vue.component('user-nav',usernav);
 
 let myvue = new Vue({
   el:'#root',
+  store:vuex_store,
   router:router,
   //程序运行完成之后
   // mounted(){
