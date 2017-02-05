@@ -16,12 +16,35 @@ Vue.use(Vuex);
 
 const vuex_store = new Vuex.Store({
   state:{
-    user_name:''
+    user_name:'',
+    newslist:[],
+    newsdetail:{}
   },
   mutations:{
     //注意：只有执行this.$store.commit("showUserName");才会执行showUserName方法
     showUserName(state){
       alert(state.user_name);
+    },
+    setAgree(state,num){
+      state.newsdetail.agree=num;
+    }
+  },
+  actions:{
+    agree(context , newsid){
+      Vue.http.post('http://www.awbeci.app/vue/',{
+        id : newsid
+      }).then(function(res){
+        context.commit('setAgree',res.body.agree);
+      },function(res){
+
+      })
+    }
+  },
+  getters:{
+    getNews(state){
+      return state.newslist.filter(function(news){
+        return !news.isdeleted;
+      })
     }
   }
 })
