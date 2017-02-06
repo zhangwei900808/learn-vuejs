@@ -8,7 +8,6 @@
   export default{
   methods:{
     submit(){
-      //alert(this.$parent.$refs.uname.$data.username)
       this.$store.commit("showUserName");
     }
   }

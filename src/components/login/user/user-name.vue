@@ -15,15 +15,7 @@
     props:["placeholder"],
     methods:{
       userNameChange(){
-        /*console.log('had changed')
-        if(this.checkUserName(this.username)){
-          this.showErrorLabel = false;
-        }
-        else{
-          this.showErrorLabel = true;
-        }*/
-        //this.$emit("childChange",'username',this.username)
-        this.$store.state.user_name = this.username;
+        this.$store.state.users.user_name = this.username;
       }
     },
     data:function(){
